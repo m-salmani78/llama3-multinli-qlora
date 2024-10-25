@@ -1,0 +1,8 @@
+transformers
+datasets
+torch
+peft
+tqdm
+matplotlib
+numpy
+warnings
