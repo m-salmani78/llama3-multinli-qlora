@@ -1,10 +1,32 @@
 # Natural Language Processing: NLI Model Fine-Tuning and Optimization
 
+This project explores fine-tuning strategies for Natural Language Inference (NLI) models using various architectures and techniques to improve performance and efficiency. The project evaluates multiple methods, including full fine-tuning, LoRA, P-tuning, and QLoRA, and benchmarks them on well-known NLI datasets like MultiNLI and SNLI.
+
+---
+
+## Table of Contents
+- [Project Overview](#project-overview)
+- [Datasets](#datasets)
+- [Models and Techniques](#models-and-techniques)
+  - [1. Full Fine-Tuning](#1-full-fine-tuning)
+  - [2. LoRA (Low-Rank Adaptation)](#2-lora-low-rank-adaptation)
+  - [3. P-tuning](#3-p-tuning)
+  - [4. QLoRA](#4-qlora)
+- [Implementation](#implementation)
+  - [Prerequisites](#prerequisites)
+  - [Installation](#installation)
+  - [Structure](#structure)
+  - [Running Experiments](#running-experiments)
+  - [Key Hyperparameters](#key-hyperparameters)
+- [Results and Findings](#results-and-findings)
+- [Conclusion](#conclusion)
+- [References](#references)
+
+---
+
 ## Project Overview
 
-Natural Language Inference (NLI) is a core task in NLP, where the model determines the logical relationship between two given sentences: entailment, contradiction, or neutral. This project examines different techniques to optimize the fine-tuning process of large language models, focusing on achieving high accuracy with minimal computational costs.
-
-This repository contains the code for training a LLaMA3 model using QLoRA for the task of Natural Language Inference (NLI) on the MultiNLI dataset.
+Natural Language Inference (NLI) is a core task in NLP, where the model determines the logical relationship between two given sentences: *entailment*, *contradiction*, or *neutral*. This project examines different techniques to optimize the fine-tuning process of large language models, focusing on achieving high accuracy with minimal computational costs.
 
 ## Datasets
 
@@ -33,7 +55,6 @@ P-tuning employs "soft prompts," which are optimized embeddings that guide the m
 ### 4. QLoRA
 QLoRA is an enhanced LoRA-based approach that quantizes weights to further reduce memory requirements and computation costs while preserving performance. It leverages efficient training with quantized 4-bit or 8-bit precision.
 
-
 ## Implementation
 
 ### Prerequisites
@@ -44,17 +65,23 @@ To replicate this project, you will need:
 - **scikit-learn**
 - **GPU** with CUDA support for faster model training (optional but recommended)
 
-## Project Structure
+### Installation
+Clone this repository and install the required packages:
+```bash
+git clone https://github.com/yourusername/llama3-multinli-qlora.git
+cd llama3-multinli-qlora
+pip install -r requirements.txt
+```
+
+### Structure
 - **`NLP_CA4_Q1.ipynb`**: Notebook for the initial experiments with RoBERTa on MultiNLI and SNLI datasets, using various fine-tuning strategies.
 - **`NLP_CA4_Q2.ipynb`**: Notebook focusing on Llama3 8B model optimization using LoRA, P-tuning, and QLoRA.
 - **`report.pdf`**: Detailed documentation of the experiments, analysis, and results.
-
 
 ### Running Experiments
 1. Open each notebook in Jupyter or Colab.
 2. Follow the cells sequentially to reproduce the experiments and analyses.
 3. Adjust hyperparameters or modify configurations to experiment with different settings.
-
 
 ### Key Hyperparameters
 - **Learning Rate**: Optimized based on each model's behavior, typically starting at `1e-5` to `1e-4`.
